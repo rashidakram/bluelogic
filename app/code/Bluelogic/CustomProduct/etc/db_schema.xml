@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bluelogic_customproduct" resource="default" engine="innodb" comment="Bluelogic CustomProduct">
+        <column xsi:type="smallint" name="entity_id" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="sku" nullable="false" length="255" comment="SKU"/>
+		<column xsi:type="varchar" name="vendor_number" nullable="false" length="255" comment="Vendor Number"/>
+        <column xsi:type="mediumtext" name="vendor_note" nullable="true" comment="Vendor Note"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="BLUELOGIC_CUSTOMPRODUCT_SKU_VENDOR_NUMBER_VENDOR_NOTE" indexType="fulltext">
+            <column name="sku"/>
+            <column name="vendor_number"/>
+            <column name="vendor_note"/>
+        </index>
+    </table>
+    <table name="bluelogic_customproduct_store" resource="default" engine="innodb" comment="Bluelogic CustomProduct To Store Linkage Table">
+        <column xsi:type="smallint" name="entity_id" unsigned="false" nullable="false" identity="false"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                comment="Store ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="BLUELOGIC_CUSTOMPRODUCT_STORE_ENTITY_ID_BLUELOGIC_CUSTOMPRODUCT_ENTITY_ID" table="bluelogic_customproduct_store"
+                    column="entity_id" referenceTable="bluelogic_customproduct" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="BLUELOGIC_CUSTOMPRODUCT_STORE_STORE_ID_STORE_STORE_ID" table="bluelogic_customproduct_store"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="BLUELOGIC_CUSTOMPRODUCT_STORE_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+    
+</schema>

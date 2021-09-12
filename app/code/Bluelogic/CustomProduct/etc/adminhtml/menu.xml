@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Bluelogic_CustomProduct::index" title="Bluelogic Products" translate="title" module="Bluelogic_CustomProduct" parent="Magento_Backend::system" sortOrder="50" dependsOnModule="Bluelogic_CustomProduct" resource="Bluelogic_CustomProduct::index"/>
+      <add id="Bluelogic_CustomProduct::products_list" title="Manage Products" translate="title" module="Bluelogic_CustomProduct" parent="Bluelogic_CustomProduct::index" sortOrder="10" dependsOnModule="Bluelogic_CustomProduct" action="customproduct/index" resource="Bluelogic_CustomProduct::index"/>
+    </menu>
+</config>

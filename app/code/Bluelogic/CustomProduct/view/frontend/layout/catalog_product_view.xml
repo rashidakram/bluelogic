@@ -1,0 +1,12 @@
+<?xml version="1.0"?> 
+<page xmlns:xsi="w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"> 
+	<body> 
+		<!-- referenceBlock name="product.info"> 
+			<action method="setTemplate" > 
+				<argument name="productdisclaimer" xsi:type="string">Bluelogic_CustomProduct::product_disclaimer.phtml</argument> 
+			</action>			
+		</referenceBlock -->
+		
+		<referenceBlock name="product.info" template="Bluelogic_CustomProduct::product_disclaimer.phtml" />
+	</body> 
+</page>

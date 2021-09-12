@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Bluelogic\CustomProduct\Api\CustomProductInterface" type="Bluelogic\CustomProduct\Model\Api\CustomProductApi"/>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="bluelogic_customproduct_customproduct_listing_data_source" xsi:type="string">Bluelogic\CustomProduct\Model\ResourceModel\CustomProduct\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Bluelogic\CustomProduct\Model\ResourceModel\Post\CustomProduct\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluelogic_customproduct</argument>
+            <argument name="resourceModel" xsi:type="string">Mageplaza\CustomProduct\Model\ResourceModel\CustomProduct</argument>
+        </arguments>
+    </virtualType>
+</config>

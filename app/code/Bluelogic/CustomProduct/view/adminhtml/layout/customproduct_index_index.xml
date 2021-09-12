@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Bluelogic\CustomProduct\Block\Adminhtml\CustomProduct" name="bluelogic_product_grid">
+                <block class="Magento\Backend\Block\Widget\Grid" name="bluelogic_product_grid.grid" as="grid">
+                    <arguments>
+                        <argument name="entity_id" xsi:type="string">entity_id</argument>
+                        <argument name="dataSource" xsi:type="object">Bluelogic\CustomProduct\Model\ResourceModel\CustomProduct\Collection</argument>
+                        <argument name="default_sort" xsi:type="string">entity_id</argument>
+                        <argument name="default_dir" xsi:type="string">ASC</argument>
+                        <argument name="save_parameters_in_session" xsi:type="string">1</argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="bluelogic_product_grid.grid.columnSet" as="grid.columnSet">
+                        <arguments>
+                            <argument name="rowUrl" xsi:type="array">
+                                <item name="path" xsi:type="string">*/*/edit</item>
+                            </argument>
+                        </arguments>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="entity_id">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Entity ID</argument>
+                                <argument name="index" xsi:type="string">entity_id</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="sku">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">SKU</argument>
+                                <argument name="index" xsi:type="string">sku</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="vendor_number">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Vendor Number</argument>
+                                <argument name="index" xsi:type="string">vendor_number</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+						<block class="Magento\Backend\Block\Widget\Grid\Column" as="vendor_note">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Vendor Note</argument>
+                                <argument name="index" xsi:type="string">vendor_note</argument>
+                                <argument name="type" xsi:type="string">text</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="created_at">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Created</argument>
+                                <argument name="index" xsi:type="string">created_at</argument>
+                                <argument name="type" xsi:type="string">date</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="updated_at">
+                            <arguments>
+                                <argument name="header" xsi:type="string" translate="true">Modified</argument>
+                                <argument name="index" xsi:type="string">updated_at</argument>
+                                <argument name="type" xsi:type="string">date</argument>
+                                <argument name="column_css_class" xsi:type="string">col-id</argument>
+                                <argument name="header_css_class" xsi:type="string">col-id</argument>
+                            </arguments>
+                        </block>
+                    </block>
+					<block class="Magento\Backend\Block\Widget\Grid\Massaction" name="bluelogic_product_grid.massaction" as="grid.massaction">
+						<arguments>
+							<argument name="massaction_id_field" xsi:type="string">entity_id</argument>
+							<argument name="form_field_name" xsi:type="string">ids</argument>
+							<argument name="use_select_all" xsi:type="string">1</argument>
+							<argument name="options" xsi:type="array">
+								<item name="disable" xsi:type="array">
+									<item name="label" xsi:type="string" translate="true">Delete</item>
+									<item name="url" xsi:type="string">*/*/massDelete</item>
+								</item>
+							</argument>
+						</arguments>
+					</block>
+                </block>
+				
+            </block>
+			
+        </referenceContainer>
+    </body>
+</page>
